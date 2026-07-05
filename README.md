@@ -12,6 +12,7 @@ My personal Emacs configuration starting point. Designed to be clean, modular, a
 *   **Ruby on Rails Environment:** MVC-aware navigation with `projectile-rails`, interactive testing via `rspec-mode`, and REPL support via `inf-ruby`.
 *   **JavaScript/TypeScript:** Full IDE capabilities for JS, TS, and React (JSX/TSX) using native Tree-sitter modes.
 *   **JSON:** Structural validation and schema-aware completions via `json-ts-mode`.
+*   **Search & Replace:** Fast, project-wide fuzzy searching with `consult-ripgrep` and mass-editing via `wgrep`.
 
 ---
 
@@ -22,6 +23,7 @@ For this configuration to work properly on a new machine, ensure the following t
 1.  **C Compiler & Toolchain (`gcc` / `make`):** Required by `treesit-auto` to automatically compile language-specific Tree-sitter grammars.
 2.  **asdf version manager:** Required by `asdf-vm` to dynamically resolve your runtime shims.
 3.  **GNU Coreutils (`gls`):** Required on macOS for clean Dired buffer listings (falls back to native ls if missing).
+4.  **ripgrep (`rg`):** Required for fast project-wide search via `consult-ripgrep`.
 4.  **Formatters (for Apheleia):**
     *   `ruff` or `black` (for Python formatting)
     *   `rubocop` (for Ruby formatting)

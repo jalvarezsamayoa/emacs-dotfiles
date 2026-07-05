@@ -201,6 +201,7 @@
 (use-package consult
   :ensure t
   :bind (("C-s" . consult-line)
+         ("C-c s" . consult-ripgrep)
          :map minibuffer-local-map
          ("C-r" . consult-history))
   :custom
@@ -328,6 +329,13 @@
 (use-package rspec-mode
   :ensure t
   :hook ((ruby-ts-mode . rspec-mode)))
+
+;; wgrep allows you to edit a grep/ripgrep buffer and apply those
+;; changes to the file system (mass find-and-replace).
+(use-package wgrep
+  :ensure t
+  :config
+  (setq wgrep-auto-save-buffer t))
 
 ;;; Custom lisp modules:
 
