@@ -11,6 +11,7 @@ My personal Emacs configuration starting point. Designed to be clean, modular, a
 *   **Syntax Highlighting:** Enhanced syntax parsing via built-in Tree-sitter using `treesit-auto`.
 *   **Ruby on Rails Environment:** MVC-aware navigation with `projectile-rails`, interactive testing via `rspec-mode`, and REPL support via `inf-ruby`.
 *   **JavaScript/TypeScript:** Full IDE capabilities for JS, TS, and React (JSX/TSX) using native Tree-sitter modes.
+*   **JSON:** Structural validation and schema-aware completions via `json-ts-mode`.
 
 ---
 
@@ -34,6 +35,7 @@ For this configuration to work properly on a new machine, ensure the following t
     *   `ruby-lsp` (or `solargraph` for Ruby support)
     *   `yaml-language-server` (YAML support)
     *   `typescript-language-server` (JS/TS/React support)
+    *   `vscode-langservers-extracted` (JSON schema and validation support)
 
 ---
 
