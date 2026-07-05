@@ -13,6 +13,7 @@ My personal Emacs configuration starting point. Designed to be clean, modular, a
 *   **JavaScript/TypeScript:** Full IDE capabilities for JS, TS, and React (JSX/TSX) using native Tree-sitter modes.
 *   **JSON:** Structural validation and schema-aware completions via `json-ts-mode`.
 *   **Search & Replace:** Fast, project-wide fuzzy searching with `consult-ripgrep` and mass-editing via `wgrep`.
+*   **Markdown:** Auto-formatting via `prettier` and live linting/intelligence via `marksman`.
 
 ---
 
@@ -27,7 +28,7 @@ For this configuration to work properly on a new machine, ensure the following t
 4.  **Formatters (for Apheleia):**
     *   `ruff` or `black` (for Python formatting)
     *   `rubocop` (for Ruby formatting)
-    *   `prettier` (for JS/TS/React formatting)
+    *   `prettier` (for JS/TS/React and Markdown formatting)
     *   `gofmt` (built-in with Go)
     *   `rustfmt` (built-in with Rust)
 5.  **Language Servers (for Eglot LSP support):**
@@ -38,6 +39,7 @@ For this configuration to work properly on a new machine, ensure the following t
     *   `yaml-language-server` (YAML support)
     *   `typescript-language-server` (JS/TS/React support)
     *   `vscode-langservers-extracted` (JSON schema and validation support)
+    *   `marksman` (Markdown support)
 
 ---
 

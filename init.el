@@ -260,7 +260,7 @@
 ;; must have the language server installed for a particular language
 ;; (e.g. rust-analyzer for Rust) before `eglot' will work its magic.
 (use-package eglot
-  ;; Automatically activate Eglot for Rust, Go, Python, Ruby, YAML, JS/TS, and JSON.
+  ;; Automatically activate Eglot for Rust, Go, Python, Ruby, YAML, JS/TS, JSON, and Markdown.
   :hook ((rust-ts-mode . eglot-ensure)
          (go-ts-mode . eglot-ensure)
          (go-mode . eglot-ensure)
@@ -270,7 +270,8 @@
          (js-ts-mode . eglot-ensure)
          (typescript-ts-mode . eglot-ensure)
          (tsx-ts-mode . eglot-ensure)
-         (json-ts-mode . eglot-ensure))
+         (json-ts-mode . eglot-ensure)
+         (md-ts-mode . eglot-ensure))
   :bind (("C-c ." . eglot-code-action-quickfix)))
 
 ;; Add breadcrumbs to the top of buffers.  Works great with Eglot.
