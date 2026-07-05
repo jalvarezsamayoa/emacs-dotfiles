@@ -259,11 +259,12 @@
 ;; must have the language server installed for a particular language
 ;; (e.g. rust-analyzer for Rust) before `eglot' will work its magic.
 (use-package eglot
-  ;; Automatically activate Eglot for Rust, Go, and Python.
+  ;; Automatically activate Eglot for Rust, Go, Python, and Ruby.
   :hook ((rust-ts-mode . eglot-ensure)
          (go-ts-mode . eglot-ensure)
          (go-mode . eglot-ensure)
-         (python-ts-mode . eglot-ensure))
+         (python-ts-mode . eglot-ensure)
+         (ruby-ts-mode . eglot-ensure))
   :bind (("C-c ." . eglot-code-action-quickfix)))
 
 ;; Add breadcrumbs to the top of buffers.  Works great with Eglot.
@@ -297,6 +298,31 @@
   :ensure t
   :config
   (apheleia-global-mode +1))
+
+;; Projectile provides project-level navigation and actions.
+(use-package projectile
+  :ensure t
+  :bind-keymap ("C-c p" . projectile-command-map)
+  :config
+  (projectile-mode +1))
+
+;; Projectile-Rails adds MVC-aware navigation for Rails projects.
+(use-package projectile-rails
+  :ensure t
+  :after projectile
+  :bind-keymap ("C-c r" . projectile-rails-command-map)
+  :config
+  (projectile-rails-global-mode))
+
+;; inf-ruby provides an interactive Ruby REPL (IRB/Pry) within Emacs.
+(use-package inf-ruby
+  :ensure t
+  :hook ((ruby-ts-mode . inf-ruby-minor-mode)))
+
+;; rspec-mode enables running RSpec tests directly from Ruby buffers.
+(use-package rspec-mode
+  :ensure t
+  :hook ((ruby-ts-mode . rspec-mode)))
 
 ;;; Custom lisp modules:
 

@@ -9,6 +9,7 @@ My personal Emacs configuration starting point. Designed to be clean, modular, a
 *   **Auto-Formatting:** Powered by `apheleia` for asynchronous format-on-save.
 *   **Completions:** Interactive buffer completions using `Corfu` and minibuffer search using `Vertico`, `Consult`, and `Orderless`.
 *   **Syntax Highlighting:** Enhanced syntax parsing via built-in Tree-sitter using `treesit-auto`.
+*   **Ruby on Rails Environment:** MVC-aware navigation with `projectile-rails`, interactive testing via `rspec-mode`, and REPL support via `inf-ruby`.
 
 ---
 
@@ -21,12 +22,14 @@ For this configuration to work properly on a new machine, ensure the following t
 3.  **GNU Coreutils (`gls`):** Required on macOS for clean Dired buffer listings (falls back to native ls if missing).
 4.  **Formatters (for Apheleia):**
     *   `ruff` or `black` (for Python formatting)
+    *   `rubocop` (for Ruby formatting)
     *   `gofmt` (built-in with Go)
     *   `rustfmt` (built-in with Rust)
 5.  **Language Servers (for Eglot LSP support):**
     *   `gopls` (Go support)
     *   `rust-analyzer` (Rust support)
     *   `pyright` or `pylsp` (Python support)
+    *   `ruby-lsp` (or `solargraph` for Ruby support)
 
 ---
 
