@@ -260,7 +260,7 @@
 ;; must have the language server installed for a particular language
 ;; (e.g. rust-analyzer for Rust) before `eglot' will work its magic.
 (use-package eglot
-  ;; Automatically activate Eglot for Rust, Go, Python, Ruby, YAML, JS/TS, JSON, and Markdown.
+  ;; Automatically activate Eglot for Rust, Go, Python, Ruby, YAML, JS/TS, JSON, Markdown, HTML, and CSS.
   :hook ((rust-ts-mode . eglot-ensure)
          (go-ts-mode . eglot-ensure)
          (go-mode . eglot-ensure)
@@ -271,7 +271,9 @@
          (typescript-ts-mode . eglot-ensure)
          (tsx-ts-mode . eglot-ensure)
          (json-ts-mode . eglot-ensure)
-         (md-ts-mode . eglot-ensure))
+         (md-ts-mode . eglot-ensure)
+         (html-ts-mode . eglot-ensure)
+         (css-ts-mode . eglot-ensure))
   :bind (("C-c ." . eglot-code-action-quickfix)))
 
 ;; Add breadcrumbs to the top of buffers.  Works great with Eglot.
@@ -346,6 +348,15 @@
   :ensure t
   :config
   (setq wgrep-auto-save-buffer t))
+
+;; emmet-mode provides fast HTML/CSS abbreviation expansion.
+(use-package emmet-mode
+  :ensure t
+  :hook ((html-ts-mode . emmet-mode)
+         (css-ts-mode . emmet-mode)
+         (js-ts-mode . emmet-mode)
+         (typescript-ts-mode . emmet-mode)
+         (tsx-ts-mode . emmet-mode)))
 
 ;;; Custom lisp modules:
 
