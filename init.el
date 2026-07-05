@@ -259,10 +259,11 @@
 ;; must have the language server installed for a particular language
 ;; (e.g. rust-analyzer for Rust) before `eglot' will work its magic.
 (use-package eglot
-  ;; Automatically activate Eglot for Rust and Go.
+  ;; Automatically activate Eglot for Rust, Go, and Python.
   :hook ((rust-ts-mode . eglot-ensure)
          (go-ts-mode . eglot-ensure)
-         (go-mode . eglot-ensure))
+         (go-mode . eglot-ensure)
+         (python-ts-mode . eglot-ensure))
   :bind (("C-c ." . eglot-code-action-quickfix)))
 
 ;; Add breadcrumbs to the top of buffers.  Works great with Eglot.
@@ -277,14 +278,25 @@
   :config
   (md-ts-mode-enable-global))
 
+;; Magit is an interface to Git, providing an interactive dashboard
+;; for staging, committing, and managing branches.
 (use-package magit
   :ensure t
   :bind (("C-x g" . magit-status)))
 
+;; asdf-vm integrates with the ASDF version manager to dynamically
+;; update the exec-path based on project .tool-versions.
 (use-package asdf-vm
   :ensure t
   :config
   (asdf-vm-mode 1))
+
+;; Apheleia runs code formatters (like Black or Ruff) asynchronously
+;; on file save without moving your cursor.
+(use-package apheleia
+  :ensure t
+  :config
+  (apheleia-global-mode +1))
 
 ;;; Custom lisp modules:
 
