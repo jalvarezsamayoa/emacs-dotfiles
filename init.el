@@ -259,12 +259,13 @@
 ;; must have the language server installed for a particular language
 ;; (e.g. rust-analyzer for Rust) before `eglot' will work its magic.
 (use-package eglot
-  ;; Automatically activate Eglot for Rust, Go, Python, and Ruby.
+  ;; Automatically activate Eglot for Rust, Go, Python, Ruby, and YAML.
   :hook ((rust-ts-mode . eglot-ensure)
          (go-ts-mode . eglot-ensure)
          (go-mode . eglot-ensure)
          (python-ts-mode . eglot-ensure)
-         (ruby-ts-mode . eglot-ensure))
+         (ruby-ts-mode . eglot-ensure)
+         (yaml-ts-mode . eglot-ensure))
   :bind (("C-c ." . eglot-code-action-quickfix)))
 
 ;; Add breadcrumbs to the top of buffers.  Works great with Eglot.

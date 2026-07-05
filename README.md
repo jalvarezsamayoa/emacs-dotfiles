@@ -30,6 +30,7 @@ For this configuration to work properly on a new machine, ensure the following t
     *   `rust-analyzer` (Rust support)
     *   `pyright` or `pylsp` (Python support)
     *   `ruby-lsp` (or `solargraph` for Ruby support)
+    *   `yaml-language-server` (YAML support)
 
 ---
 
