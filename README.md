@@ -10,6 +10,7 @@ My personal Emacs configuration starting point. Designed to be clean, modular, a
 *   **Completions:** Interactive buffer completions using `Corfu` and minibuffer search using `Vertico`, `Consult`, and `Orderless`.
 *   **Syntax Highlighting:** Enhanced syntax parsing via built-in Tree-sitter using `treesit-auto`.
 *   **Ruby on Rails Environment:** MVC-aware navigation with `projectile-rails`, interactive testing via `rspec-mode`, and REPL support via `inf-ruby`.
+*   **JavaScript/TypeScript:** Full IDE capabilities for JS, TS, and React (JSX/TSX) using native Tree-sitter modes.
 
 ---
 
@@ -23,6 +24,7 @@ For this configuration to work properly on a new machine, ensure the following t
 4.  **Formatters (for Apheleia):**
     *   `ruff` or `black` (for Python formatting)
     *   `rubocop` (for Ruby formatting)
+    *   `prettier` (for JS/TS/React formatting)
     *   `gofmt` (built-in with Go)
     *   `rustfmt` (built-in with Rust)
 5.  **Language Servers (for Eglot LSP support):**
@@ -31,6 +33,7 @@ For this configuration to work properly on a new machine, ensure the following t
     *   `pyright` or `pylsp` (Python support)
     *   `ruby-lsp` (or `solargraph` for Ruby support)
     *   `yaml-language-server` (YAML support)
+    *   `typescript-language-server` (JS/TS/React support)
 
 ---
 
