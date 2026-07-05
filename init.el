@@ -42,6 +42,16 @@
 ;; directories, since they may have changed underneath.
 (setq dired-auto-revert-buffer t)
 
+;; Automatically reload buffers when files change on disk.
+(global-auto-revert-mode t)
+
+;; On macOS, BSD ls does not support --dired. Use GNU gls if installed,
+;; or disable dired-use-ls-dired to avoid warnings.
+(when (string-equal system-type "darwin")
+  (if (executable-find "gls")
+      (setq insert-directory-program "gls")
+    (setq dired-use-ls-dired nil)))
+
 ;; Tab does quite a bit of stuff in Emacs, so it's helpful to have it
 ;; attempt completions when it's not doing something else.
 (setq tab-always-indent 'complete)
@@ -81,9 +91,9 @@
 ;; Turn off the default Emacs UI elements, drill those keybindings
 ;; instead!  You can use "C-h C-q" to pull up a quick-reference sheet
 ;; that will help you remember the basics.
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
+(when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; Display line numbers in programming language modes.
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
@@ -130,7 +140,7 @@
 (use-package ef-themes
   :ensure t
   :config
-  (ef-themes-select 'ef-trio-dark))
+  (load-theme 'ef-trio-dark t))
 
 ;; When using Mac OSX or Linux, you likely want your shell environment
 ;; path available to Emacs so that Emacs can locate your custom
@@ -249,11 +259,10 @@
 ;; must have the language server installed for a particular language
 ;; (e.g. rust-analyzer for Rust) before `eglot' will work its magic.
 (use-package eglot
-  ;; Uncomment these dotted pairs to automatically activate Eglot when
-  ;; that major mode is active.
-  ;;
-  ;; :hook ((rust-ts-mode . eglot-ensure)
-  ;;        (go-ts-mode . eglot-ensure))
+  ;; Automatically activate Eglot for Rust and Go.
+  :hook ((rust-ts-mode . eglot-ensure)
+         (go-ts-mode . eglot-ensure)
+         (go-mode . eglot-ensure))
   :bind (("C-c ." . eglot-code-action-quickfix)))
 
 ;; Add breadcrumbs to the top of buffers.  Works great with Eglot.
@@ -261,6 +270,21 @@
   :ensure t
   :config
   (breadcrumb-mode))
+
+;; Modern Tree-sitter powered Markdown mode.
+(use-package md-ts-mode
+  :ensure t
+  :config
+  (md-ts-mode-enable-global))
+
+(use-package magit
+  :ensure t
+  :bind (("C-x g" . magit-status)))
+
+(use-package asdf-vm
+  :ensure t
+  :config
+  (asdf-vm-mode 1))
 
 ;;; Custom lisp modules:
 
