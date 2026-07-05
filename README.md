@@ -3,7 +3,7 @@
 My personal Emacs configuration starting point. Designed to be clean, modular, and portable across machines.
 
 ## Features & Package Integrations
-*   **Git Interface:** Integrated via [Magit](https://magit.vc/) (`C-x g` to open status).
+*   **Git Interface:** Integrated via [Magit](https://magit.vc/) (`C-x g` to open status) with live in-buffer diff highlighting via `diff-hl`.
 *   **Version Manager:** Integrated via `asdf-vm` to automatically load local runtime toolpaths.
 *   **LSP Client:** Powered by the built-in `eglot` client.
 *   **Auto-Formatting:** Powered by `apheleia` for asynchronous format-on-save.

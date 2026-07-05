@@ -292,6 +292,15 @@
   :ensure t
   :bind (("C-x g" . magit-status)))
 
+;; diff-hl highlights uncommitted changes on the left side of the window
+;; and integrates seamlessly with Magit.
+(use-package diff-hl
+  :ensure t
+  :config
+  (global-diff-hl-mode)
+  (add-hook 'magit-pre-refresh-hook 'diff-hl-magit-pre-refresh)
+  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh))
+
 ;; asdf-vm integrates with the ASDF version manager to dynamically
 ;; update the exec-path based on project .tool-versions.
 (use-package asdf-vm
