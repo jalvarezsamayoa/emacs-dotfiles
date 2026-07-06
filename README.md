@@ -44,6 +44,27 @@ For this configuration to work properly on a new machine, ensure the following t
 
 ---
 
+## macOS Installation
+
+Run the following commands to install required dependencies via [Homebrew](https://brew.sh/):
+
+```bash
+# Install core build tools
+xcode-select --install
+
+# Install core utilities and search tools
+brew install coreutils ripgrep git asdf
+
+# Install Language Servers and Formatters
+brew install rust-analyzer marksman
+npm install -g prettier typescript typescript-language-server vscode-langservers-extracted yaml-language-server
+gem install rubocop ruby-lsp
+pip install ruff black
+go install golang.org/x/tools/gopls@latest
+```
+
+---
+
 ## Installation on a New Machine
 
 1.  **Clone the Repository:**
